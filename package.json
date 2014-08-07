@@ -1,0 +1,20 @@
+{
+  "name": "farm.bithound.io",
+  "version" : "0.1.0",
+  "description" : "Distributed computing orchistration platform",
+  "homepage": "https://github.com/bithound/farm.bithound.io",
+  "dependencies": {
+    "async": "0.2.10",
+    "uuid": "1.4.1",
+    "zmq": "2.6.0"
+  },
+  "devDependencies": {
+    "sinon-chai": "^2.5.0",
+    "chai": "^1.9.1",
+    "mocha": "^1.18.2"
+  },
+  "main": "./lib/farm",
+  "scripts": {
+    "test": "./node_modules/.bin/_mocha --recursive -R nyan test/unit"
+  }
+}
