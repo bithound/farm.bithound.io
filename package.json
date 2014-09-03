@@ -1,6 +1,6 @@
 {
   "name": "farm.bithound.io",
-  "version" : "0.1.0",
+  "version" : "0.2.0",
   "description" : "Distributed computing orchistration platform",
   "homepage": "https://github.com/bithound/farm.bithound.io",
   "dependencies": {
