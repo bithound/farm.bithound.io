@@ -1,6 +1,6 @@
 describe('farm broker pushpull', function () {
   var sinonChai = require('../../../fixtures/sinon.chai'),
-      pushpull = require('../../../../lib/farm/broker/pushpull'),
+      pushpull = require('../../../../lib/broker/pushpull'),
       zmq = require('zmq'),
       sinon, sockets;
 

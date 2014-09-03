@@ -1,6 +1,6 @@
 describe('farm broker', function () {
   var sinonChai = require('../../fixtures/sinon.chai'),
-      broker = require('../../../lib/farm/broker'),
+      broker = require('../../../lib/broker'),
       cp = require('child_process'),
       fork, sinon;
 

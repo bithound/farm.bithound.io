@@ -1,6 +1,6 @@
 describe('farm reqrep broker', function () {
   var sinonChai = require('../../../fixtures/sinon.chai'),
-      reqrep = require('../../../../lib/farm/broker/reqrep'),
+      reqrep = require('../../../../lib/broker/reqrep'),
       zmq = require('zmq'),
       sinon, sockets;
 

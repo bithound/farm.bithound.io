@@ -2,9 +2,9 @@ describe('farm', function () {
   var sinonChai = require('./../fixtures/sinon.chai'),
       sinon,
       farm = require('../../lib/farm'),
-      pubsub = require('../../lib/farm/client/pubsub'),
-      reqrep = require('../../lib/farm/client/reqrep'),
-      pushpull = require('../../lib/farm/client/pushpull');
+      pubsub = require('../../lib/client/pubsub'),
+      reqrep = require('../../lib/client/reqrep'),
+      pushpull = require('../../lib/client/pushpull');
 
   sinonChai(function (sandbox) { sinon = sandbox; });
 

@@ -1,6 +1,6 @@
 describe('farm pubsub client', function () {
   var sinonChai = require('../../../fixtures/sinon.chai'),
-      pubsub = require('../../../../lib/farm/client/pubsub'),
+      pubsub = require('../../../../lib/client/pubsub'),
       events = require('events'),
       zmq = require('zmq'),
       emitter, sockets, sinon;
