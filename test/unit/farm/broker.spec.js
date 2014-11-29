@@ -31,8 +31,8 @@ describe('farm broker', function () {
     });
 
     it('calls send on the forked processes', function () {
-      broker.start();
-      expect(fork.send).to.have.been.calledWith('start');
+      broker.start({});
+      expect(fork.send).to.have.been.calledWith({});
       expect(fork.send.callCount).to.equal(3);
     });
   });
