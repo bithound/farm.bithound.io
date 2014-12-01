@@ -2,6 +2,7 @@ describe('farm broker pubsub', function () {
   var sinonChai = require('../../../fixtures/sinon.chai'),
       pubsub = require('../../../../lib/broker/pubsub'),
       zmq = require('zmq'), sockets,
+      cfg = {},
       sinon;
 
   sinonChai(function (sandbox) { sinon = sandbox; });
@@ -27,42 +28,42 @@ describe('farm broker pubsub', function () {
 
   describe('starting', function () {
     it('creates an xsub socket', function () {
-      pubsub.start();
+      pubsub.start(cfg);
       zmq.socket.should.have.been.calledWith('xsub');
     });
 
     it('creates an xpub socket', function () {
-      pubsub.start();
+      pubsub.start(cfg);
       zmq.socket.should.have.been.calledWith('xpub');
     });
 
     it('binds the xpub socket', function () {
-      pubsub.start();
+      pubsub.start(cfg);
       sockets.xpub.bindSync.should.have.been.calledWith('tcp://*:5555');
     });
 
     it('binds the xsub socket', function () {
-      pubsub.start();
+      pubsub.start(cfg);
       sockets.xsub.bindSync.should.have.been.calledWith('tcp://*:5556');
     });
 
     it('registers for errors on the xpub socket', function () {
-      pubsub.start();
+      pubsub.start(cfg);
       sockets.xpub.on.should.have.been.calledWith('error');
     });
 
     it('registers for errors on the xsub socket', function () {
-      pubsub.start();
+      pubsub.start(cfg);
       sockets.xsub.on.should.have.been.calledWith('error');
     });
 
     it('registers for messages on the xpub socket', function () {
-      pubsub.start();
+      pubsub.start(cfg);
       sockets.xpub.on.should.have.been.calledWith('message');
     });
 
     it('registers for messages on the xsub socket', function () {
-      pubsub.start();
+      pubsub.start(cfg);
       sockets.xsub.on.should.have.been.calledWith('message');
     });
   });

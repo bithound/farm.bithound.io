@@ -2,6 +2,7 @@ describe('farm broker pushpull', function () {
   var sinonChai = require('../../../fixtures/sinon.chai'),
       pushpull = require('../../../../lib/broker/pushpull'),
       zmq = require('zmq'),
+      cfg = {reaper: {}},
       sinon, sockets;
 
   sinonChai(function (sandbox) { sinon = sandbox; });
@@ -35,62 +36,62 @@ describe('farm broker pushpull', function () {
 
   describe('starting', function () {
     it('creates router socket', function () {
-      pushpull.start();
+      pushpull.start(cfg);
       zmq.socket.should.have.been.calledWith('router');
     });
 
     it('creates an pull socket', function () {
-      pushpull.start();
+      pushpull.start(cfg);
       zmq.socket.should.have.been.calledWith('pull');
     });
 
     it('creates an push socket', function () {
-      pushpull.start();
+      pushpull.start(cfg);
       zmq.socket.should.have.been.calledWith('push');
     });
 
     it('binds the router socket', function () {
-      pushpull.start();
+      pushpull.start(cfg);
       sockets.router.bindSync.should.have.been.calledWith('tcp://*:5003');
     });
 
     it('binds the pull socket', function () {
-      pushpull.start();
+      pushpull.start(cfg);
       sockets.pull.bindSync.should.have.been.calledWith('tcp://*:5558');
     });
 
     it('binds the push socket', function () {
-      pushpull.start();
+      pushpull.start(cfg);
       sockets.push.bindSync.should.have.been.calledWith('tcp://*:5557');
     });
 
     it('registers for errors on the pull socket', function () {
-      pushpull.start();
+      pushpull.start(cfg);
       sockets.pull.on.should.have.been.calledWith('error', sinon.match.func);
     });
 
     it('registers for errors on the push socket', function () {
-      pushpull.start();
+      pushpull.start(cfg);
       sockets.push.on.should.have.been.calledWith('error', sinon.match.func);
     });
 
     it('registers for errors on the router socket', function () {
-      pushpull.start();
+      pushpull.start(cfg);
       sockets.router.on.should.have.been.calledWith('error', sinon.match.func);
     });
 
     it('registers for messages on the pull socket', function () {
-      pushpull.start();
+      pushpull.start(cfg);
       sockets.pull.on.should.have.been.calledWith('message', sinon.match.func);
     });
 
     it('doesn\'t register for messages on the push socket', function () {
-      pushpull.start();
+      pushpull.start(cfg);
       sockets.push.on.should.not.have.been.calledWith('message', sinon.match.func);
     });
 
     it('registers for messages on the router socket', function () {
-      pushpull.start();
+      pushpull.start(cfg);
       sockets.router.on.should.have.been.calledWith('message', sinon.match.func);
     });
   });

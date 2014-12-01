@@ -39,18 +39,18 @@ describe('farm', function () {
     });
 
     it('calls join on the pubsub module', function () {
-      farm.join('Javert', true);
-      pubsub.join.should.have.been.calledWith('Javert');
+      farm.join('Javert', {worker: true});
+      pubsub.join.should.have.been.calledWith('Javert', {worker: true});
     });
 
     it('calls join on the reqrep module', function () {
-      farm.join('Valjean', false);
-      reqrep.join.should.have.been.calledWith('Valjean', false);
+      farm.join('Valjean', {});
+      reqrep.join.should.have.been.calledWith('Valjean', {});
     });
 
     it('calls join on the pushpull module', function () {
-      farm.join('Fantine', true);
-      pushpull.join.should.have.been.calledWith('Fantine', true);
+      farm.join('Fantine', {worker: true});
+      pushpull.join.should.have.been.calledWith('Fantine', {worker: true});
     });
   });
 
