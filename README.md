@@ -1,3 +1,5 @@
+[![bitHound Score](https://www.bithound.io/bithound/farm.bithound.io/badges/score.svg)](https://www.bithound.io/bithound/farm.bithound.io)
+
 farm.bithound.io
 ----------------
 
