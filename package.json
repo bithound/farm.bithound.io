@@ -1,8 +1,12 @@
 {
   "name": "farm.bithound.io",
-  "version" : "0.3.0",
+  "version" : "0.4.0",
   "description" : "Distributed computing orchistration platform",
   "homepage": "https://github.com/bithound/farm.bithound.io",
+  "licenses": [{
+    "type": "LGPLv3.0",
+    "url": "http://www.gnu.org/licenses/lgpl-3.0.txt"
+  }],
   "dependencies": {
     "async": "0.2.10",
     "uuid": "1.4.1",
