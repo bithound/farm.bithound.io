@@ -3,19 +3,17 @@
   "version" : "0.4.0",
   "description" : "Distributed computing orchistration platform",
   "homepage": "https://github.com/bithound/farm.bithound.io",
-  "licenses": [{
-    "type": "LGPLv3.0",
-    "url": "http://www.gnu.org/licenses/lgpl-3.0.txt"
-  }],
+  "license": "LGPL-3.0",
+  "repository": "git@github.com:bithound/farm.bithound.io.git",
   "dependencies": {
-    "async": "0.2.10",
-    "uuid": "1.4.1",
-    "zmq": "2.6.0"
+    "async": "1.2.1",
+    "uuid": "2.0.1",
+    "zmq": "2.11.1"
   },
   "devDependencies": {
-    "sinon-chai": "^2.5.0",
-    "chai": "^1.9.1",
-    "mocha": "^1.18.2"
+    "sinon-chai": "2.8.0",
+    "chai": "^2.1.0",
+    "mocha": "^2.1.0"
   },
   "main": "./lib/farm",
   "scripts": {
