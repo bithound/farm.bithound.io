@@ -13,14 +13,14 @@
   "bugs": "https://github.com/bithound/farm.bithound.io/issues",
   "author": "Gord Tanner <gord@bithound.io>",
   "dependencies": {
-    "async": "1.2.1",
+    "async": "^1.4.2",
     "uuid": "2.0.1",
-    "zmq": "2.11.1"
+    "zmq": "^2.13.0"
   },
   "devDependencies": {
-    "sinon-chai": "2.8.0",
-    "chai": "^2.1.0",
-    "mocha": "^2.1.0"
+    "chai": "^3.2.0",
+    "mocha": "^2.3.0",
+    "sinon-chai": "2.8.0"
   },
   "main": "./lib/farm",
   "scripts": {
