@@ -7,16 +7,13 @@ Welcome to the farm.
 
 This is a simple "framework" that we use at bitHound for working in a distributed environment.
 
-It wasn't really built for anyone but us to use, but we thought it would be something nice to
-share.
-
 Example:
 -------
 
 You can clone this repo, npm install and then just run:
 
 ```
-> node example/hello.js
+> node examples/hello.js
 hello world !!!
 >
 ```
@@ -31,6 +28,7 @@ to communicate with each other.
 Example:
 
 ```
+  //when your process starts:
   var broker = require('farm/lib/broker').start();
 
 
@@ -43,9 +41,7 @@ schedule work to be done.
 
 ```
   var farm = require('farm');
-
   farm.join('localhost');
-
   farm.jobs.send('show me the money', function (err, money) { });
 ```
 
@@ -69,7 +65,6 @@ Mind you not much will happen unless you have some processes out there that are 
   });
   
   //just make sure you say you are a worker when you join
-  // (for now, it sucks but it was easier to code this way)
   farm.join('localhost', {worker: true});
 
 ```
