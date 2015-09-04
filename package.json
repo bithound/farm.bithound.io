@@ -1,11 +1,15 @@
 {
   "name": "@gtanner/farm",
-  "version" : "0.5.0",
-  "description" : "Distributed computing orchestration platform",
+  "version": "0.6.0",
+  "description": "Distributed computing orchestration platform",
   "homepage": "https://github.com/bithound/farm.bithound.io",
   "license": "LGPL-3.0",
   "repository": "https://github.com/bithound/farm.bithound.io.git",
-  "keywords": ["distributed", "farm", "zmq"],
+  "keywords": [
+    "distributed",
+    "farm",
+    "zmq"
+  ],
   "bugs": "https://github.com/bithound/farm.bithound.io/issues",
   "author": "Gord Tanner <gord@bithound.io>",
   "dependencies": {
