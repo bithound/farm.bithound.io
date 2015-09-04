@@ -17,6 +17,7 @@ if (cluster.isMaster) {
   cluster.fork();
 
   async.parallel([
+    async.apply(farm.jobs.send, 'hello'),
     async.apply(farm.jobs.distribute, ['hello','hello','hello']),
     async.apply(farm.jobs.distribute, ['hello','hello','hello'])
   ], function (err) {
