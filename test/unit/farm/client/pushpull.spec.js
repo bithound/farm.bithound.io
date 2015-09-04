@@ -101,10 +101,11 @@ describe('farm pushpull client', function () {
         });
       });
 
-      //HACK: figure out how to test this again ;)
-      xit('sends worker is not ready when no worker', function () {
+      it('sends worker is not ready when no worker', function () {
         func('12', '"Pinkie Pie"');
-        sockets.push.send.should.have.been.calledWith(['12', 'worker not ready']);
+        var err = JSON.parse(sockets.push.send.lastCall.args[0][1]);
+        sockets.push.send.should.have.been.calledWith(['12', sinon.match.string]);
+        expect(err.message).to.equal('not_ready');
       });
 
       describe('after a worker is assigned', function () {

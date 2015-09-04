@@ -85,14 +85,6 @@ describe('farm reqrep client', function () {
         });
       });
 
-      //HACK: figure out how to test this again
-      xit('sends worker is not ready when no worker', function () {
-        func('Pinkie Pie');
-        var err = utils.deserialize.lastCall;
-        console.log(err);
-        expect(utils.deserialize).to.have.been.calledWith([new Error('not_ready')]);
-      });
-
       describe('after a worker is assigned', function () {
         beforeEach(function () {
           worker = sinon.stub();
