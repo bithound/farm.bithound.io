@@ -13,6 +13,7 @@ if (cluster.isMaster) {
   //start a couple child processes (which will be our workers)
   async.times(20, cluster.fork);
 
+  farm.events.subscribe('stats', console.log);
   async.forever(function (callback) {
     farm.jobs.distribute(['ping', 'ping', 'ping', 'ping'], function (err, result) {
       console.log(Date.now(), result);
@@ -25,15 +26,22 @@ if (cluster.isMaster) {
   });
 }
 else {
+  var pings = 0;
   // setup a worker callback function
   farm.worker(function (task, callback) {
     switch (task) {
       case 'ping':
+        pings++;
         setTimeout(async.apply(callback, null, process.pid + ':pong'), 1000);
         break;
       default: return callback(new Error('huh?'));
     }
   });
+
+
+  setInterval(function () {
+    farm.events.publish('stats', { pid: process.pid, pings: pings });
+  }, 5000);
 
   //connect to localhost and designate we are a worker
   farm.join('localhost', {worker: true});
