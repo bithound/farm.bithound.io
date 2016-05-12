@@ -14,13 +14,15 @@ if (cluster.isMaster) {
   cluster.fork();
   cluster.fork();
 
-  farm.jobs.send('hello', function (err, world) {
-    farm.jobs.distribute(['?', '?', '?'], function (err, excited) {
-      console.log('hello', world, excited.join(''));
-      broker.stop();
-      process.exit();
+  setTimeout(function () {
+    farm.jobs.send('hello', function (err, world) {
+      farm.jobs.distribute(['?', '?', '?'], function (err, excited) {
+        console.log('hello', world, excited.join(''));
+        broker.stop();
+        process.exit();
+      });
     });
-  });
+  }, 500);
 }
 else {
   // setup a worker callback function

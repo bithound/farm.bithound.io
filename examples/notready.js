@@ -16,21 +16,23 @@ if (cluster.isMaster) {
   cluster.fork();
   cluster.fork();
 
-  async.parallel([
-    async.apply(farm.jobs.send, 'hello'),
-    async.apply(farm.jobs.distribute, ['hello','hello','hello']),
-    async.apply(farm.jobs.distribute, ['hello','hello','hello'])
-  ], function (err) {
-    broker.stop();
-    // Not expecting an error
-    if (err) {
-      console.log(err.stack);
-      process.exit(1);
-    }
+  setTimeout(function () {
+    async.series([
+      async.apply(farm.jobs.send, 'hello'),
+      async.apply(farm.jobs.distribute, ['hello','hello','hello']),
+      async.apply(farm.jobs.distribute, ['hello','hello','hello'])
+    ], function (err) {
+      broker.stop();
+      // Not expecting an error
+      if (err) {
+        console.log(err.stack);
+        process.exit(1);
+      }
 
-    console.log("all good!");
-    process.exit();
-  });
+      console.log("all good!");
+      process.exit();
+    });
+  }, 500);
 }
 else {
   // wait a little before we have a worker function
