@@ -14,7 +14,7 @@
   "author": "Gord Tanner <gord@bithound.io>",
   "dependencies": {
     "async": "^1.4.2",
-    "uuid": "2.0.1",
+    "uuid": "^2.0.2",
     "zmq": "^2.13.0"
   },
   "devDependencies": {
