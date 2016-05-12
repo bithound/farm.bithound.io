@@ -5,10 +5,10 @@ var farm = require('../lib/farm'),
 // We are using cluster to keep this all in one file
 if (cluster.isMaster) {
   //We always need a broker running (on localhost)
-  var broker = require('../lib/broker').start({ports: ports});
+  var broker = require('../lib/broker').start();
 
   //join the farm (started via the broker)
-  farm.join('localhost', {ports: ports});
+  farm.join('localhost');
 
   //start a couple child processes (which will be our workers)
   async.times(20, cluster.fork);
@@ -43,5 +43,5 @@ else {
   }, 5000);
 
   //connect to localhost and designate we are a worker
-  farm.join('localhost', {worker: true, ports: ports});
+  farm.join('localhost', {worker: true});
 }
