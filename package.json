@@ -1,6 +1,6 @@
 {
   "name": "@gtanner/farm",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Distributed computing orchestration platform",
   "homepage": "https://github.com/bithound/farm.bithound.io",
   "license": "LGPL-3.0",
